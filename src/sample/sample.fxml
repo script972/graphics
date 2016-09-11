@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Canvas fx:id="canvas" height="375.0" width="454.0" />
+         </children></Pane>
+   </center>
+   <right>
+      <Pane prefHeight="375.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="max1X" layoutY="57.0" />
+            <TextField fx:id="min1X" layoutY="27.0" />
+            <TextField fx:id="min1Y" layoutY="115.0" />
+            <TextField fx:id="max1Y" layoutY="145.0" />
+            <Button layoutY="180.0" mnemonicParsing="false" onAction="#draw" prefHeight="25.0" prefWidth="150.0" text="range" />
+            <Label layoutX="11.0" layoutY="90.0" text="Y" />
+            <Label layoutX="10.0" layoutY="1.0" text="X" />
+         </children>
+      </Pane>
+   </right>
+</BorderPane>
