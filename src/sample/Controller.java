@@ -58,18 +58,36 @@ public class Controller implements Initializable {
             this.maxY = Double.parseDouble(max1Y.getText());
         }
 
-
         GraphicsContext gc = canvas.getGraphicsContext2D();
+
         gc.setFill(Color.AQUA);
         gc.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
+
+
+
+        gc.setStroke(Color.YELLOW);
+        gc.setLineWidth(3);
         gc.strokeLine(toScreenX(minX), toScreenY(0), toScreenX(maxX), toScreenY(0));
-        gc.strokeLine(toScreenX(0),toScreenY(maxY),toScreenX(0),toScreenY(minY));
+        if (toScreenX(0)<0)
+        gc.strokeLine(Math.abs(toScreenX(0))/15,toScreenY(maxY),Math.abs(toScreenX(0))/15,toScreenY(minY));
+        else
+        if (toScreenX(0)>canvas.getWidth())
+            gc.strokeLine(canvas.getWidth()-Math.abs(toScreenX(0))/15,toScreenY(maxY),canvas.getWidth()-Math.abs(toScreenX(0))/15,toScreenY(minY));
+            else
+            gc.strokeLine(toScreenX(0),toScreenY(maxY),toScreenX(0),toScreenY(minY));
         List<Point> points = tabulation();
         gc.beginPath();
+        gc.setStroke(Color.RED);
+        gc.setLineWidth(2);
         gc.moveTo(toScreenX(points.get(0).getX()), toScreenY(points.get(0).getY()));
         for (int i=1; i<points.size(); i++) {
             gc.lineTo(toScreenX(points.get(i).getX()), toScreenY(points.get(i).getY()));
         }
+       // System.out.println(toScreenX(0));
+
+
+
+
         gc.stroke();
     }
 
